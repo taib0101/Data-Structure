@@ -1,0 +1,36 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+struct whole
+{
+    int element1, element2;
+    double a;
+    float b;
+};
+void print(struct whole *ptr)
+{
+    ptr -> element1 = 10;
+    ptr -> element2 = 20;
+//    cout<<ptr -> element1<<" "<<ptr -> element2<<endl;
+}
+
+//void print(struct whole *ptr)
+//{
+//    scanf("%d %d",ptr -> element1,ptr -> element2);//wrong idea
+////    cout<<ptr -> element1<<" "<<ptr -> element2<<endl;
+//}
+int main()
+{
+    struct whole arr;
+    arr = {30,40};
+    cout<<"before : ";
+    cout<<"arr.element = "<<arr.element1<<", arr.element2 = "<<arr.element2<<endl;
+//    cout<<"adress of = "<<&arr<<endl;
+    cout<<"size = "<<sizeof(arr)<<endl;
+//    struct whole *ptr = &arr;
+
+    print(&arr);
+    cout<<"after : ";
+    cout<<arr.element1<<" "<<arr.element2<<endl;
+    return 0;
+}
