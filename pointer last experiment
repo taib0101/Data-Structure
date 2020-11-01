@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+//    int n = 10, *ptr1 = &n;// int *ptr diye ptr = &n ptr1 n er adress point kre
+////    cout<<"Adress of  n = "<<&n<<", ptr1 = "<<ptr1<<endl;
+////    cout<<"value of n = "<<n<<", *ptr1 = "<<*ptr1<<endl;
+////    int *ptr2 = ptr1 eivabeo lekha jay and eita main ta point kre
+////    int *ptr2 = ptr1;
+//
+//    int **ptr2;
+//    ptr2 = &ptr1;// ptr2 ptr1 er adress point kre
+//
+//    cout<<"Adress of n = "<<ptr1<<", *ptr2 = "<<*ptr2<<endl;//&n and *ptr2 diyao lekha jay
+//    cout<<"Adress of ptr1 = "<<ptr2<<", &ptr1 = "<<&ptr1<<endl;//&ptr diyaoo lekha jay
+    int n = 10, *ptr1 = &n;
+    int *ptr2 = ptr1;
+    cout<<"adress of &ptr2 = "<<ptr2<<", &ptr1 = "<<ptr1<<", &n = "<<&n<<endl;//eki adress point kre dude
+    cout<<"adress of &ptr2 = "<<&ptr2<<", &ptr1 = "<<&ptr1<<", &n = "<<&n<<endl;//eki adress point kre dude
+    return 0;
+}
