@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+void get_value(int *ptr)
+{
+    *ptr = 20;
+}
+
+int main()
+{
+    int x = 10;
+    cout<<"Before calling function x value was = "<<x<<endl;
+    get_value(&x);
+
+    cout<<"After calling function x value was = "<<x<<endl;
+
+    return 0;
+}
