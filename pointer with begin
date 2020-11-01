@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char *ch = "I am taib";
+    cout<<"pointer string adress = "<<&ch<<endl;
+    int n = 2 , *ptr1,**ptr2;
+    ptr1 = &n;
+    ptr2 = &ptr1;
+    cout<<"size of integer = "<<sizeof(int)<<endl;
+
+    printf("Adress of  ptr = %p, n = %p\n",ptr1,&n);
+    printf("**ptr2= %d , n = %d",**ptr2,n);
+    return 0;
+}
+//int main()
+//{
+//    unsigned long long int *marks,n,i;
+////    int i, n;
+//    scanf("%d",&n);
+//
+//    // now allocate mamory
+//    marks = (unsigned long long int *) malloc(sizeof(unsigned long long int) *n);
+//
+//    cout<<"memory of marks = "<<marks<<endl;
+//    for(int i = 0; i < n; ++i)
+//    {
+//        scanf("%lld",&marks[i]);
+//    }
+//
+//    for(int i = 0; i < n; ++i)
+//        cout<<"marks = "<<marks[i]<<endl;
+//    return 0;
+//}
+
+
+//    int a , *p;
+//    char *ch = "My name is TAib";
+//    cout<<*(ch + 9)<<endl;
+//    cin>>a;
+//    int arr[100];
+//    for(int i = 0; i < a; ++i)
+//    {
+//        cin>>arr[i];
+//        p = &arr[i];
+//        cout<<"Adress = "<<p<<endl;
+//    }
+//
+//    p = &a;
+//    cout<<"Adress of A = "<<p <<endl;
+//
