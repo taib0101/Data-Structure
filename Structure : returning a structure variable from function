@@ -1,0 +1,27 @@
+//returning a structure variable from function
+#include<bits/stdc++.h>
+using namespace std;
+struct point
+{
+    int x,y;
+};
+
+struct point edit(struct point n)
+{
+    n.x = n.x + 5;
+    n.y = n.y + 10;
+    return n;
+}
+
+
+int main()
+{
+    struct point p1 , p2;
+    p1 = {10,20};
+    p2 = {30,40};
+    p1 = edit(p1);
+    cout<<"p1.x = "<<p1.x<<", p1.y = "<<p1.y<<endl;
+    p2 = edit(p2);
+    cout<<"p2.x = "<<p2.x<<", p2.y = "<<p2.y<<endl;
+    return 0;
+}
