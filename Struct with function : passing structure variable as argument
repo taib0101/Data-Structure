@@ -1,0 +1,32 @@
+//passing Structure variables as argument
+#include<bits/stdc++.h>
+using namespace std;
+struct data_type
+{
+    int ele1, ele2;
+    char ch;
+};
+void print(struct data_type x)
+{
+    cout<<"first = "<<x.ele1<<" , second = "<<x.ele2<<", ch = "<<x.ch<<endl;
+}
+
+
+int main()
+{
+    int a,b;
+    //structure variable are :: arr1, arr2;
+    struct data_type arr1, arr2;
+//    arr1.ele1 = 10, arr1.ele2 = 20, arr1.ch = 'a';
+    arr1 = {10,20,'a'};
+
+//    arr1.ele1 = 10, arr1.ele2 = 20, arr1.ch = 'a';
+    arr2 = {30,40,'b'};
+
+    cout<<"arr1 : "<<endl;
+    print(arr1);
+    cout<<"arr2 : "<<endl;
+    print(arr2);
+
+    return 0;
+}
