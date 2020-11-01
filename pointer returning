@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+//int &get()
+//{
+//    int x = 15 , &y = x;
+//    cout<<&y<<" "<<&x<<endl;
+//    return y;
+//}
+//
+//int main()
+//{
+//    int &ptr = get();
+//
+//    cout<<ptr<<endl;
+//
+//    return 0;
+//}
+int *get(int *pt)
+{
+    *pt = 20;
+    int *y = (int *)malloc(sizeof(int)) , a = 10;
+    y = pt;
+    return y;
+}
+
+int main()
+{
+    int a = 10;
+    cout<<"main in a = "<<a<<endl;
+    int *ptr = get(&a);
+    cout<<"after return pointer : ";
+    cout<<*ptr<<endl;
+    free(ptr);
+
+    return 0;
+}
