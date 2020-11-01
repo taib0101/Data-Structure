@@ -1,0 +1,30 @@
+//returning a pointer to a structure from the function
+#include<bits/stdc++.h>
+using namespace std;
+
+struct point
+{
+    int x,y;
+};
+
+struct point *edit(int a, int b)
+{
+    struct point *pt = (struct point *)malloc(sizeof(struct point));
+    pt -> x = a;
+    pt -> y = b;
+    return pt;
+}
+
+int main()
+{
+//    int a = 10, *pt = &a, **pt2 = &pt;
+//    struct point *ptr1,*ptr2,p1,p2;
+
+   struct point *ptr1 = edit(2,3);
+
+    cout<<"ptr1.x = "<<ptr1->x<<", ptr1.y = "<<ptr1->y<<endl;
+    free(ptr1);
+    ptr1 = NULL;
+
+    return 0;
+}
