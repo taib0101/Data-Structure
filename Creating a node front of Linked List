@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct node
+{
+    int data ;
+    struct node *link;
+}*head = NULL, *temp = NULL;
+
+void insertt(int n)
+{
+    struct node *current = (struct node *)malloc(sizeof(struct node));
+
+    head = current;
+    current -> data = n;
+    current -> link = temp;
+    temp = current;
+}
+void show(struct node *ptr)
+{
+    cout<<ptr -> data <<" ";
+    if(ptr -> link == NULL)
+        return;
+    show(ptr -> link);
+}
+
+int main()
+{
+    int n;
+    while(cin>>n && n)
+        insertt(n);
+    show(head);
+    cout<<endl;
+    return 0;
+}
