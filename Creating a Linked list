@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+    int data;
+    struct node *link;
+}*head = NULL;
+//struct node *head;
+void insertt(int n)
+{
+    struct node *current = (struct node *) malloc(sizeof(struct node));//current node element create krbo , head khis khaiya boiya thkbo and temp agay niya jaibo
+    current -> data = n;
+    current -> link = NULL;// first node 100 which will point head;
+    if(head == NULL)
+        head = current;
+    else
+    {
+        struct node *temp = head;// temp point at first node;
+        while(temp -> link != NULL)
+        {
+            temp = temp -> link;// if 100 is NULL them it will stroe in temp;
+        }
+        temp -> link = current;//  then (100) -> link = 101 and name of 101 is NULL;
+    }
+
+
+}
+void show(struct node *ptr)
+{
+//    cout<<"pre adress = "<<&ptr<<endl;
+    cout<<ptr -> data<<endl;
+    cout<<ptr -> link<<endl;
+    if(ptr -> link == NULL)
+        return;
+
+    show(ptr -> link);
+}
+
+int main()
+{
+    int n;
+    while(cin>>n && n)
+    {
+        insertt(n);
+    }
+    show(head);
+    return 0;
+}
