@@ -1,0 +1,97 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *link;
+}*head = NULL;
+
+void insertt(int n)
+{
+    struct node *current = (struct node *)malloc(sizeof(struct node));
+    struct node *previous;
+    current -> data = n;
+    current -> link = NULL;
+    if(head == NULL)
+        head = current; // first node 100 which will point head;
+    else
+    {
+        previous = head;// previous point at first node;
+        while(previous -> link != NULL)
+            previous = previous -> link; // if 100 is NULL them it will stroe in previous;
+        previous -> link = current;//  then (100) -> link = 101 and name of 101 is NULL;
+    }
+}
+void print(struct node *ptr)
+{
+    if(ptr == NULL)
+    {
+        cout<<"No element"<<endl;
+        return;
+    }
+    cout<<ptr -> data<<" ";
+    if(ptr -> link == NULL)
+    {
+        cout<<endl;
+        return;
+    }
+    print(ptr -> link);
+
+}
+struct node *temp = NULL;
+void deletee(int m,struct node *ptr)
+{
+    if(ptr == NULL)
+    {
+        cout<<"No element"<<endl;
+        return;
+    }
+
+    if(ptr -> data == m && head == ptr)
+    {
+        head = ptr -> link;
+        free(ptr);
+        ptr = NULL;
+        return;
+    }else if(ptr -> data == m && ptr != NULL){
+        temp -> link = ptr -> link;
+//        cout<<"lawra"<<endl;
+        free(ptr);
+        ptr = NULL;
+        temp = NULL;
+        return;
+    }else if(ptr -> data == m && ptr == NULL){
+        free(ptr);
+        ptr = NULL;
+        temp -> link = NULL;
+        temp = NULL;
+        return;
+    }else if(ptr -> link == NULL){
+        cout<<"Wrong element selected"<<endl;
+        return;
+    }
+    temp = ptr;
+    deletee(m,ptr -> link);
+}
+
+int main()
+{
+    int n;
+
+    while(cin>>n && n)
+    {
+        insertt(n);
+    }
+    cout<<"After inserting element "<<endl;
+    print(head);
+    int m;
+    cout<<"Delete : ";
+    while(cin >> m)
+    {
+        deletee(m,head);
+        cout<<"After deleting element : "<<endl;
+        print(head);
+    }
+    return 0;
+}
