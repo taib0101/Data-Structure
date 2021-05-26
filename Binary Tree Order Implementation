@@ -1,0 +1,90 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+    int n;
+    struct node *left;
+    struct node *right;
+};
+
+void binary_tree(struct node *ptr, int arr[], int t, int i)
+{
+    if(i >= t)
+        return;
+    struct node *root_left = (struct node *) malloc(sizeof(struct node));// making left child node of parent node
+    root_left -> n = arr[2*i+1];
+    root_left -> left = NULL;
+    root_left -> right = NULL;
+
+    struct node *root_right = (struct node *) malloc(sizeof(struct node));// making right child node of parent node
+    root_right -> n = arr[2*i+2];
+    root_right -> left = NULL;
+    root_right -> right = NULL;
+
+    ptr -> left = root_left;// adding parent node with child node
+    ptr -> right = root_right;// adding parent node with right node
+    binary_tree(ptr -> left, arr, t, 2*i+1);
+    binary_tree(ptr -> right, arr, t, 2*i+2);
+}
+
+void show_binary_tree(struct node *ptr,int i)
+{
+    if(ptr -> left == NULL || ptr -> right == NULL)
+        return;
+    // Pre-oder simulation --->>> < root > < left > < right >
+    cout << ptr -> n << " ";
+    show_binary_tree(ptr -> left, i+1);
+    show_binary_tree(ptr -> right, i+1);
+    if(i == 0)
+        cout << endl;
+}
+
+void show_binary_tre(struct node *ptr,int i)
+{
+    if(ptr -> left == NULL || ptr -> right == NULL)
+        return;
+    show_binary_tre(ptr -> left, i+1);
+    // in-oder simulation --->>> < left > < root > < right >
+    cout << ptr -> n << " ";
+    show_binary_tre(ptr -> right, i+1);
+    if(i == 0)
+        cout << endl;
+}
+
+void show_binary_tr(struct node *ptr,int i)
+{
+    if(ptr -> left == NULL || ptr -> right == NULL)
+        return;
+    show_binary_tr(ptr -> left, i+1);
+    show_binary_tr(ptr -> right, i+1);
+//    // Postoder simulation --->>> < left > < right > < root >
+    cout << ptr -> n << " ";
+    if(i == 0)
+        cout << endl;
+}
+
+
+int main()
+{
+    int arr[1000], t;
+    while(cin >> t)
+    {
+        memset(arr,0,sizeof(arr));
+        for(int i = 0; i < t; ++i)
+            cin >> arr[i];
+        struct node *head = NULL;
+        struct node *head_root = (struct node *) malloc(sizeof(struct node));
+        head_root -> n = arr[0];
+        head_root -> left = NULL;
+        head_root -> right = NULL;
+        head = head_root;
+        binary_tree(head, arr, t, 0);
+        cout << "Post - Order :-> " << endl;
+        show_binary_tree(head,0);
+        cout << "In - Order :-> " << endl;
+        show_binary_tre(head,0);
+        cout << "Pre - Order :-> " << endl;
+        show_binary_tr(head,0);
+    }
+    return 0;
+}
