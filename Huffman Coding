@@ -31,7 +31,7 @@ struct node *huffman(map < char , int > m,int j)
         root -> right = NULL;
         cout << "char = " << it->second << endl;
         cout << "totall = " << it->first << endl;
-        pq.push({it->second,it->first,root,NULL,NULL});
+        pq.push({it->second,it->first,root});
     }
     struct node *hh = NULL;
     while(pq.size() != 1)
@@ -49,28 +49,31 @@ struct node *huffman(map < char , int > m,int j)
         root -> right = r2;
         // cout << "n = " << r1 -> n << endl;
         // cout << "n1 = " << r2 -> n << endl;
-        pq.push({aa+bbb,'\0',root,r1,r2});
+        pq.push({aa+bbb,'\0',root});
     }
     hh = pq.top().head;
     //cout << "last = " << hh -> left -> n << endl;
     
     return hh;
 }
-void show(struct node *h,string ss)
+void show(struct node *h,string ss,char ch)//recursion tree te if-else condition er vitor push na krle pop krte hoy
 {
+    if(ch != '\0')//eivabeo hoy
+        ss.push_back(ch);
     if(h -> left == NULL && h -> right == NULL)
     {
         cout << "c = " << h -> c << ", code = " << ss << endl;
         return;
     }
-    ss.push_back('0');
-    show(h->left,ss);
-    ss.pop_back();
-    ss.push_back('1');
-    show(h->right,ss);
-    ss.pop_back();
+    
+    //ss.push_back('0');
+    show(h->left,ss,'0');
+    //ss.pop_back();
+   // ss.push_back('1');
+    show(h->right,ss,'1');
+    //ss.pop_back();
 }
-// zzccccccaaaaaaaaaaddddddddddddffffffffffffff
+//zzccccccaaaaaaaaaaddddddddddddffffffffffffff
 int main()
 {
     string str;
@@ -83,7 +86,7 @@ int main()
         
         struct node *h = huffman(m,j);
         string ss;
-        show(h,ss);
+        show(h,ss,'\0');
     }
     return 0;
 }
