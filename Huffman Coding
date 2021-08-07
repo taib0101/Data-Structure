@@ -56,7 +56,8 @@ struct node *huffman(map < char , int > m,int j)
     
     return hh;
 }
-void show(struct node *h,string ss,char ch)//recursion tree te if-else condition er vitor push na krle pop krte hoy
+void show(struct node *h,string ss,char ch)//recursion tree te return age push krle pore pop krar lge na kintu return er pore push krle pop krar lge
+
 {
     if(ch != '\0')//eivabeo hoy
         ss.push_back(ch);
